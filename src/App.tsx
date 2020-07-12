@@ -10,8 +10,6 @@ export const App: React.FC = ({ children }) => {
   const { state } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
 
-  console.log(user.username);
-
   const onClose = () => {
     setOpen(false);
   };

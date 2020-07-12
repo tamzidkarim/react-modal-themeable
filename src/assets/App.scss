@@ -96,10 +96,6 @@ h1 {
   color: var(--heading-color);
 }
 
-a {
-  color: var(--primary-color);
-}
-
 .App {
   @include center();
   background-color: var(--bg-color);

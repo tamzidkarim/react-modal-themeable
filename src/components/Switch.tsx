@@ -3,9 +3,6 @@ import { ThemeContext } from "../contexts/themeContext";
 
 export default function Switch() {
   const { dispatch } = useContext(ThemeContext);
-  const handleClick = () => {
-    console.log("Switch");
-  };
 
   return (
     <button

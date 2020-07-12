@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../contexts/userContext";
 
@@ -16,7 +16,7 @@ interface IUser {
 
 export const Login: React.FC<Props> = ({ onClose }) => {
   const { register, handleSubmit } = useForm<Inputs>();
-  const { user, dispatch } = useContext(UserContext);
+  const { dispatch } = useContext(UserContext);
 
   const onSubmit = (data: Inputs) => {
     dispatch({ type: "SET_USER", username: data.username });

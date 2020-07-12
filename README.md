@@ -1,8 +1,19 @@
+## [React Modal](react-modal-themeable.vercel.app)
+
+1. Login Form in Modal
+2. Theme
+3. Local storage
+4. Context, Hooks, Reducer, Scss
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn`
+
+To install all the dependencies
 
 ### `yarn start`
 

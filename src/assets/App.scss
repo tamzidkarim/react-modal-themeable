@@ -1,0 +1,214 @@
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+:root {
+  --primary-color: #f56565;
+  --secondary-color: #c53030;
+  --font-color: #292922;
+  --bg-color: #f6f5f5;
+  --heading-color: #292922;
+}
+.Dark {
+  --primary-color: orangered;
+  --secondary-color: #c53030;
+  --font-color: #f6f5f5;
+  --bg-color: #434242;
+  --heading-color: #f6f5f5;
+}
+
+//mixins
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($flex-value) {
+  -webkit-box-flex: $flex-value;
+  -moz-box-flex: $flex-value;
+  -webkit-flex: $flex-value;
+  -ms-flex: $flex-value;
+  flex: $flex-value;
+}
+
+@mixin justify($justify-value) {
+  -webkit-justify-content: $justify-value;
+  -moz-justify-content: $justify-value;
+  justify-content: $justify-value;
+}
+
+@mixin box-pack($box-pack) {
+  -webkit-box-pack: $box-pack;
+  -moz-box-pack: $box-pack;
+  -ms-flex-pack: $box-pack;
+}
+
+@mixin trans($prop, $time) {
+  -webkit-transition: $prop $time;
+  -moz-transition: $prop $time;
+  -ms-transition: $prop $time;
+  -o-transition: $prop $time;
+  transition: $prop $time;
+}
+
+@mixin border-radius($bdrs) {
+  -webkit-border-radius: $bdrs;
+  -moz-border-radius: $bdrs;
+  border-radius: $bdrs;
+}
+
+@mixin center {
+  @include flexbox;
+  @include justify(center);
+  align-items: center;
+}
+
+/////////////////////////
+
+body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.App {
+  @include center();
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  min-height: 100vh;
+  transition: ease 1s;
+}
+
+.button-login {
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+  width: auto;
+  border-radius: 0.125rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: var(--secondary-color);
+  }
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 55;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  @include center();
+}
+
+.wrapper {
+  background-color: var(--bg-color);
+  padding: 0.75rem;
+  height: 400px;
+  width: 400px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  overflow: auto;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  top: 2%;
+  right: 2%;
+}
+
+.login-container {
+  @include center;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+form {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin: 1rem 0rem;
+    list-style: none;
+  }
+  .button-form-btn {
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 0.125rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: var(--secondary-color);
+    }
+    cursor: pointer;
+  }
+}
+
+.theme-toggle-button {
+  background: transparent;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.theme-toggle-button:focus {
+  outline: none;
+}
+
+.icon {
+  color: var(--secondary-color);
+}

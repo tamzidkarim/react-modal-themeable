@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useContext } from "react";
+import "./assets/App.scss";
 
-function App() {
+import { Dialog } from "./components/Dialog";
+import { ThemeContext } from "./contexts/themeContext";
+import { UserContext } from "./contexts/userContext";
+
+export const App: React.FC = ({ children }) => {
+  const [open, setOpen] = useState(false);
+  const { state } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
+
+  console.log(user.username);
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={state.darkTheme ? "App Dark" : "App"}>
+      <button
+        onClick={() => {
+          setOpen(true);
+        }}
+        className='button-login'
+      >
+        {user.username ? `Logged in as ${user.username}` : "Log In"}
+      </button>
+      {open && <Dialog onClose={onClose} />}
     </div>
   );
-}
+};
 
 export default App;
